@@ -1,0 +1,125 @@
+/* start variables */
+:root {
+    /* primary */
+	--red: #ea5353;
+    --cyan: #45d3d3;
+    --orange: #fcaf4a;
+    --blue: #549ef2;
+    /* Neutral */
+    --very_dark_blue: #4c4e61;
+    --grayish_blue: #a3a5ae;
+    --very_light_gray: #fafafa;
+    
+}
+/* end variables */
+
+/* start global rules */
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body{
+	font-family: 'Poppins', sans-serif;
+    Font-size: 15px;
+    padding: 20px 40px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100vh;
+}
+/* end global rules */
+
+/* start heading-title section */
+.heading-title {
+    text-align: center;
+    margin: 40px auto
+}
+.heading-title h2:first-of-type  {
+    font-weight: 400;
+    color: var(--grayish_blue);
+}
+.heading-title h2:last-of-type {
+    color: var(--very_dark_blue);
+}
+.heading-title p {
+    color: var(--grayish_blue);
+    font-weight: 400;
+    line-height: 1.5rem;
+}
+/* end heading-title section */
+
+/* start cards section */
+.cards {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    /* justify-content: center; */
+    align-content: center;
+}
+.card {
+    box-shadow: 0px 0.333rem 13px 1px rgb(0 0 0 / 10%);
+    margin-bottom: 20px;
+    border-radius: 0.5rem;
+    padding: 25px;
+    padding-bottom: 40px;
+    width: 100%;
+    height: 16rem;
+    position: relative;
+}
+.card:nth-of-type(1) {
+    border-top: .333rem solid var(--cyan);
+}
+.card:nth-of-type(2) {
+    border-top: .333rem solid var(--red);
+}
+.card:nth-of-type(3) {
+    border-top: .333rem solid var(--orange);
+}
+.card:nth-of-type(4) {
+    border-top: .333rem solid var(--blue);
+}
+.card h3 {
+    color: var(--very_dark_blue);
+    font-weight: 600;
+}
+.card p {
+    color: var(--grayish_blue);
+    font-weight: 200;
+    line-height: 1.5rem;
+}
+.card img {
+    /* float: right; */
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+}
+
+@media (min-width: 768px){
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr 1fr;
+        gap: 20px;
+        align-items: center;
+    }
+    .card:nth-of-type(1) {
+        grid-row: span 2;  
+    }
+    .card:nth-of-type(3) {
+        border-top: .333rem solid var(--orange);
+        grid-area: 2/2/2/2;
+    }
+    .card:nth-of-type(4) {
+        grid-row: span 2;
+    }
+}
+
+/* end cards section */
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+}
+.attribution a { 
+    color: var(--red); 
+}

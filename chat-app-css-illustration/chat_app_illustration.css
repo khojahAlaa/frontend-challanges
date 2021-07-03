@@ -1,0 +1,383 @@
+/* start variables */
+:root {
+    /* - Pale Violet (sub-heading at the top of the app UI): ; */
+    --chat_pg: hsl(276, 100%, 81%);
+    /* - Moderate Violet (chat on the left) */
+    --chart_left_text: hsl(276, 55%, 52%);
+     /* (chat on the right) */
+    --chat_right_text: hsl(271, 15%, 43%);
+    /* - (placeholder text) */
+    --placeholder_text: hsl(206, 6%, 79%);
+
+    /* (main heading) */
+    --dark_desaturated_h: hsl(271, 36%, 24%);
+    /* (paragraph) */
+    --dark_grayish_p : hsl(270, 7%, 64%);
+    /* for Gradients */
+    --Light_Magenta: hsl(293, 100%, 63%);
+    --Light_Violet: hsl(264, 100%, 61%);
+    --gradients: linear-gradient(to right,  hsl(264, 100%, 61%),  hsl(293, 100%, 63%) );
+    --gradients-chat: linear-gradient(to right,  hsl(293, 100%, 63%), hsl(264, 100%, 61%) );
+
+    --white: hsl(0, 0%, 100%);
+    --app_background: hsl(270, 20%, 96%) ;
+    --submit_button: hsl(271, 36%, 24%);
+    --radio_button_outline: hsl(289, 100%, 72%);
+}
+
+/* end variables */
+
+/* start global rules */
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Rubik', sans-serif;
+    Font-size: 16px;
+    margin: auto;
+    background-color: var(--app_background);
+    min-height: 100vh;
+}
+.fas {
+    color: var(--white);
+    font-size: 3px;
+}
+.fa-ellipsis-v {
+    color: var(--chat_pg);
+}
+
+/* start mobile section */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.illustration::before {
+    content: '';
+    left: -125px;
+    top: -30px;
+    position:absolute;
+    height:  550px;
+    width: 250px;
+    z-index: -100;
+    border-radius: 0px 0px  280px 0px;
+    background: linear-gradient(to bottom ,  hsl(280deg 100% 62%), hsl(264, 100%, 61%) );
+}
+.mobile {
+    background: var(--app_background);
+    width: 250px;
+    /* height: 545px; */
+    height: 530px;
+    border: 10px solid #fff;
+    border-radius: 32px;
+    margin-top: 40px;
+    /* margin-left: 160px; */
+    margin-bottom: 10px;
+    box-shadow: 4px 7px 20px 0px hsl(206deg 6% 79%);
+}
+@media (min-width: 768px) {
+    main {
+       display: flex;
+       flex-direction: row;
+    }
+    .mobile {
+         margin-left: 230px;
+    }
+    .illustration::before {
+       height:  550px;
+       width: 414px;
+       border-radius: 0px 0px  280px 280px;
+    }
+   
+   }
+.header {
+    width: 230px;
+    height: 65px;
+    padding: 20px 10px 10px 10px;
+    background: var(--gradients);
+    border-radius: 24px 24px 5px 5px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    position: relative;
+}
+.header::after {
+    content: '';
+    width: 130px;
+    height: 25px;
+    border-radius: 5px 5px 15px 15px;
+    background-color: var(--white);
+    position: absolute;
+    top: -8px;
+    left: 50px;
+}
+.header .avatar {
+    margin: 1px 10px;
+}
+.header .avatar img {
+    width: 25px;
+    border: 1px solid var(--chat_pg);
+    border-radius: 50px;
+}
+.header .name-stat {
+    /* margin-left: 10px; */
+    display: flex;
+    flex-direction: column;
+    width: 130px;
+    flex-grow: 2;
+}
+.header .name-stat .name {
+    color: var(--chat_pg);
+    font-size: .8rem;
+    font-weight: 700;
+    padding: 2px;
+}
+.header .name-stat .status {
+    color: var(--chat_pg);
+    font-size: .4rem;
+    font-weight: 400;
+    padding: 2px;
+}
+.messages {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.messages .texting {
+    max-width: fit-content;
+    max-width: 60%;
+    font-size: .4rem;
+    font-weight: 400;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+/* .texting-right {
+    max-width: fit-content;
+    max-width: 60%;
+    font-size: .4rem;
+    font-weight: 400;
+    padding: 8px;
+    margin-bottom: 8px;
+    margin-left: 82px;
+} */
+.messages .text-reply {
+    background-color: hsl(276, 100%, 81%, 18%);
+    color: var(--chart_left_text);
+    border-radius: 10px 10px 10px 3px;
+}
+.messages .pics-send {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+.messages .pics-send img {
+    width: 35px;
+    border-radius: 10px;
+    margin: 0px 3px;
+    cursor: pointer;
+}
+.messages .text-send {
+    margin-left: 82px;
+    background-color: var(--white);
+    color: var(--chat_right_text);
+    border-radius: 10px 10px 3px 10px;
+}
+.messages .offer {
+    background: var(--gradients-chat);
+    color: var(--chat_pg);
+
+}
+.offer{
+    max-width: fit-content;
+    max-width: 160px;
+    font-size: .4rem;
+    font-weight: 400;
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 10px 10px 10px 3px;
+    display: flex;
+    justify-content: space-between;
+}
+/* start radio btn */
+.container {
+    display: block;
+    position: relative;
+    /* padding-left: 35px; */
+    /* margin-bottom: 12px; */
+    cursor: pointer;
+    /* font-size: 20px; */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default radio button */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 12px;
+    width: 12px;
+    background-color: rgba(245, 238, 238, 0.1);
+    border: 1px solid var(--radio_button_outline);
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: var(--app_background);
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: var(--chart_left_text);
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .container .checkmark:after {
+        top: 2.5px;
+        left: 2.5px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--white);
+  }
+  /* end radio btn */
+.offer .offer-name {
+    font-size: .4rem;
+    font-weight: 400;
+}
+.offer .offer-price {
+    font-size: .7rem;
+    font-weight: 500;
+    color: var(--white);
+}
+
+/* start typing-sending section */
+ 
+.typing-sending input[text]{
+    direction: none;
+    border: none;
+
+}
+
+.typing-sending{
+    display: inline-flex;
+    margin-top: 5px;
+  }
+  input{
+    width: 100%;
+    padding: 10px 5px 10px 25px;
+    border-radius: 35px;
+    border: 1px solid var(--app_background);
+    opacity: 0.8;
+    /* box-shadow: 0 10px 20px var(--placeholder_text); */
+    position: relative;
+  }
+  input::placeholder {
+    color: var(--placeholder_text);
+    font-size: .5rem;
+  }
+  input:focus{
+    outline: none;
+  }
+  .send-btn{
+    color: var(--white);
+    background-color: var(--dark_desaturated_h);
+    border-radius: 50%;
+    padding: 1px 10px;
+    height: 25px;
+    margin-left: -40px;
+    margin-top: 7px;
+    z-index: 100;
+    cursor: pointer;
+  }
+/* end typing-sending section */
+/* start content section */
+.content {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.content h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--dark_desaturated_h);
+    margin-bottom: 20px;
+}
+.content p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--dark_grayish_p);
+}
+.content::after {
+    content: '';
+    overflow: hidden;
+    right: 0px;
+    bottom: -306px;
+    position:absolute;
+    height:  450px;
+    width: 186px;
+    z-index: -100;
+    border-radius: 280px 0px  0px 0px;
+    background-color: hsl(276, 100%, 81%, 8%);
+}
+@media (min-width: 768px) {
+    .content {
+        margin-left: 5rem;
+        align-items: flex-start;
+        text-align: left;
+        flex-basis: 500px;
+    }
+    .content::after {
+        
+        bottom: 0px;
+        position:absolute;
+        height:  500px;
+        width: 300px;
+        z-index: -100;
+        border-radius: 280px 0px  0px 0px;
+        background-color: hsl(276, 100%, 81%, 8%);
+    }
+   
+}
+
+
+/* end mobile section */
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: var(--chart_left_text); }
