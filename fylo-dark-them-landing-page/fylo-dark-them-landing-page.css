@@ -143,7 +143,7 @@ main {
 @media (max-width: 768px) {
     .landing {
         padding-top: 3rem;
-        background: url('./images/bg-curvy-mobile.svg') no-repeat hsl(217, 28%, 15%);
+        background: url('../imgs/bg-curvy-mobile.svg') no-repeat hsl(217, 28%, 15%);
         background-size: contain;
         background-position: bottom;
     } 
@@ -151,7 +151,7 @@ main {
 @media (min-width: 768px) {
     .landing {
         padding-top: 3rem;
-        background: url('./images/bg-curvy-desktop.svg') no-repeat hsl(217, 28%, 15%);
+        background: url('../imgs/bg-curvy-desktop.svg') no-repeat hsl(217, 28%, 15%);
         background-size: contain;
         background-position: bottom;
         display: flex;
